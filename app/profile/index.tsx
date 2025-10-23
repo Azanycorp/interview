@@ -1,19 +1,13 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Link } from "expo-router";
+import { View, Text, Button } from "react-native";
+import { useRouter } from "expo-router";
 
-export default function ProfileHome() {
+export default function Profile() {
+    const router = useRouter();
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Profile Page</Text>
-            <Link href="/profile/settings" style={styles.link}>
-                Go to Settings
-            </Link>
+        <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+            <Text>Welcome to Azany!</Text>
+            <Button title="Go to Settings" onPress={() => router.push("/profile/settings")} />
         </View>
     );
 }
-
-const styles = StyleSheet.create({
-    container: { flex: 1, justifyContent: "center", alignItems: "center" },
-    title: { fontSize: 24, fontWeight: "bold", marginBottom: 20 },
-    link: { color: "#2563eb", fontSize: 18, textDecorationLine: "none" },
-});
